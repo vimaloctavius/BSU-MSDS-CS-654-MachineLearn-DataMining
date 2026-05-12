@@ -1,0 +1,36 @@
+CS 654 Machine Learning and Data Mining Syllabus
+Summer 2026 Instructor Information
+
+Course Developer: Dr. Fu-Shing Sun, Computer Science Department, Ball State University, Muncie, IN
+
+Primary Instructor for Summer 2026: Dr. Fu-Shing Sun, Computer Science Department, Ball State University, Muncie, IN
+
+Course Facilitator for Summer 2026: TBA
+
+Course Information
+
+Course Description  
+
+Discussion of machine learning and data mining algorithms, implementations, systems, and applications. Topics include unsupervised learning, supervised learning, reinforcement learning, data preprocessing, data clustering, data classification, mining association rules, and anomaly detection.
+
+Prerequisite
+
+CS 617 
+
+Learning Outcomes
+
+After taken this class, the student will be able to
+
+Explain the basics of machine learning and data mining, their applications and opportunities.
+
+Process and prepare data for machine learning and data mining tasks.
+
+Perform data clustering on real data using unsupervised machine learning algorithms.
+
+Perform data classification on real data using supervised machine learning algorithms.
+
+Perform association rule mining on shopping basket data.
+
+Perform text mining and outlier detection using data classification methods.
+
+Explain the key concepts of deep learning and large language models and their applications
