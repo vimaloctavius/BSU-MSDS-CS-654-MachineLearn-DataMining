@@ -1,0 +1,715 @@
+# Python Basics Review - CS654 Module 1
+
+
+## 1. Comments and Print
+
+**Comments** let you leave notes in your code. Python ignores anything
+after `#`.  
+**Print** displays output to the screen.
+
+``` python
+# This is a comment - Python ignores this line
+print("Hello CS654")
+```
+
+    Hello CS654
+
+**What it reads in English:**
+
+- `# This is a comment` → “Everything after the hash symbol is a
+  human-readable note; Python skips it.”
+- `print("Hello CS654")` → “Display the text ‘Hello CS654’ on the
+  screen.”
+
+**Memory Trick:** Think of `#` as a “mute button” — anything after it is
+silenced from Python.
+
+------------------------------------------------------------------------
+
+## 2. Data Types: Integer, Float, String, Boolean
+
+Python automatically assigns a data type based on the value you give a
+variable.
+
+``` python
+x = 10
+print(type(x))
+
+y = 3.14159
+print(type(y))
+
+s = 'hello'
+print(type(s))
+
+t = "world"
+print(type(t))
+
+single = True
+print(type(single))
+```
+
+    <class 'int'>
+    <class 'float'>
+    <class 'str'>
+    <class 'str'>
+    <class 'bool'>
+
+**What it reads in English:**
+
+- `x = 10` → “Create a box named ‘x’ and put the whole number 10 inside
+  it.”
+- `type(x)` → “Tell me what kind of data is stored in ‘x’.”
+- `y = 3.14159` → “Create a box named ‘y’ and store a decimal number in
+  it.”
+- `s = 'hello'` → “Create a box named ‘s’ and store the text ‘hello’ in
+  it.”
+- `single = True` → “Create a box named ‘single’ and store the yes/no
+  value True in it.”
+
+**Memory Trick:** - **int** = whole numbers (no dots) - **float** =
+numbers that “float” around a decimal point - **str** = text wrapped in
+quotes - **bool** = True/False (like a light switch: on or off)
+
+------------------------------------------------------------------------
+
+## 3. Variable Display in Jupyter vs Scripts
+
+In Jupyter, typing a variable name alone shows its value. In regular
+Python scripts, you must use `print()`.
+
+``` python
+x = 42
+x
+```
+
+    42
+
+**Memory Trick:** Jupyter is “chatty” — it auto-replies. Scripts are
+“quiet” — you must ask with `print()`.
+
+------------------------------------------------------------------------
+
+## 4. String Length with `len()`
+
+`len()` counts the number of characters in a string (or items in a
+list).
+
+``` python
+s = "hello"
+print(len(s))
+```
+
+    5
+
+**What it reads in English:**
+
+- `len(s)` → “Count how many characters are inside the string ‘s’.”
+
+**Note:** `len()` does NOT work on integers or floats — only on
+sequences like strings and lists.
+
+``` python
+# This would cause an error:
+# len(10)  # TypeError: object of type 'int' has no len()
+```
+
+**Memory Trick:** `len` = “length” — it measures how long something is.
+
+------------------------------------------------------------------------
+
+## 5. Accessing String Characters by Index
+
+Strings behave like a list of characters. Index starts at **0**.
+
+``` python
+s = "hello"
+print(s[0])   # first character
+print(s[4])   # last character (index = length - 1)
+```
+
+    h
+    o
+
+**What it reads in English:**
+
+- `s[0]` → “Give me the character at position 0 (the very first one) in
+  string ‘s’.”
+- `s[4]` → “Give me the character at position 4 in string ‘s’.”
+
+**Memory Trick:** Python counts from 0, like floors in a European
+building — ground floor is 0.
+
+------------------------------------------------------------------------
+
+## 6. Boolean Variables and Comparison Operators
+
+Booleans hold `True` or `False`. Use `==` to check equality, `!=` for
+not equal.
+
+``` python
+single = True
+print(single)
+
+single = False
+print(single)
+
+print(single == True)   # Is single equal to True?
+print(single != True)   # Is single NOT equal to True?
+```
+
+    True
+    False
+    False
+    True
+
+**What it reads in English:**
+
+- `single == True` → “Check: is the value of ‘single’ equal to True?
+  Give me True or False.”
+- `single != True` → “Check: is the value of ‘single’ NOT equal to
+  True?”
+
+**Memory Trick:** - `=` is “put this value in” (assignment) - `==` is
+“are these the same?” (comparison)
+
+------------------------------------------------------------------------
+
+## 7. If / Else Statements
+
+Execute code based on a condition.
+
+``` python
+single = False
+
+if single == True:
+    print("I am single")
+else:
+    print("I am not single")
+```
+
+    I am not single
+
+**What it reads in English:**
+
+- `if single == True:` → “If the condition ‘single equals True’ is
+  satisfied, do the indented block below.”
+- `else:` → “Otherwise (if the condition was False), do this block
+  instead.”
+
+**Memory Trick:** Think of `if/else` as a fork in the road — you can
+only go one way.
+
+------------------------------------------------------------------------
+
+## 8. String Comparison (Case Sensitive)
+
+Python treats uppercase and lowercase as different characters.
+
+``` python
+s1 = "Bear"
+s2 = "beer"
+
+if s1 == s2:
+    print("They are the same")
+else:
+    print("They are different")
+```
+
+    They are different
+
+``` python
+name1 = "John"
+name2 = "john"
+
+if name1 == name2:
+    print("Same name")
+else:
+    print("Different - Python is case sensitive!")
+```
+
+    Different - Python is case sensitive!
+
+**Memory Trick:** For Python, ‘A’ and ‘a’ are as different as ‘A’ and
+‘Z’.
+
+------------------------------------------------------------------------
+
+## 9. Arithmetic Operators
+
+``` python
+x = 10
+y = 3
+
+print("Addition:", x + y)
+print("Subtraction:", x - y)
+print("Multiplication:", x * y)
+print("Division:", x / y)
+print("Remainder (modulo):", x % y)
+```
+
+    Addition: 13
+    Subtraction: 7
+    Multiplication: 30
+    Division: 3.3333333333333335
+    Remainder (modulo): 1
+
+**What it reads in English:**
+
+- `x + y` → “Add x and y together.”
+- `x % y` → “Divide x by y and give me only the leftover (remainder).”
+
+**Memory Trick:** `%` (modulo) = “what’s left over after dividing” —
+like splitting 10 cookies among 3 friends, 1 is left.
+
+------------------------------------------------------------------------
+
+## 10. Rounding with `round()`
+
+``` python
+result = 10 / 3
+print(result)
+print(round(result, 2))
+```
+
+    3.3333333333333335
+    3.33
+
+**What it reads in English:**
+
+- `round(result, 2)` → “Round the number in ‘result’ to 2 decimal
+  places.”
+
+------------------------------------------------------------------------
+
+## 11. If / Elif / Else (Three+ Conditions)
+
+``` python
+x = 10
+y = 15
+
+if x > y:
+    print("x is larger than y")
+elif y > x:
+    print("y is larger than x")
+else:
+    print("x and y are equal")
+```
+
+    y is larger than x
+
+**What it reads in English:**
+
+- `elif y > x:` → “Otherwise, if this new condition is true, do this
+  block.”
+
+**Memory Trick:** `elif` = “else if” = “okay that first thing wasn’t
+true, but what about THIS?”
+
+------------------------------------------------------------------------
+
+## 12. Lists — Creating, Accessing, Length
+
+``` python
+L = [6, 7, 2, 1, 4]
+print(L)
+print("Size:", len(L))
+print("First element:", L[0])
+print("Last element:", L[len(L) - 1])
+```
+
+    [6, 7, 2, 1, 4]
+    Size: 5
+    First element: 6
+    Last element: 4
+
+**What it reads in English:**
+
+- `L = [6, 7, 2, 1, 4]` → “Create a list named ‘L’ containing these 5
+  numbers in order.”
+- `L[0]` → “Give me the item at position 0 (first item).”
+- `L[len(L) - 1]` → “Give me the last item (total length minus 1 because
+  we start at 0).”
+
+**Memory Trick:** Lists are like numbered lockers starting at locker
+\#0.
+
+------------------------------------------------------------------------
+
+## 13. For Loops — Traversing a List
+
+**Method 1: Using range (index-based)**
+
+``` python
+L = [6, 7, 2, 1, 4]
+
+for i in range(len(L)):
+    print(L[i])
+```
+
+    6
+    7
+    2
+    1
+    4
+
+**Method 2: Direct iteration (no index needed)**
+
+``` python
+for x in L:
+    print(x)
+```
+
+    6
+    7
+    2
+    1
+    4
+
+**What it reads in English:**
+
+- `for i in range(len(L)):` → “Repeat this block, with i going from 0 up
+  to (but not including) the length of L.”
+- `for x in L:` → “For each item in L (call it x), do the following.”
+
+**Memory Trick:** - Use `range()` when you NEED the position number -
+Use `for x in L` when you just need the values
+
+------------------------------------------------------------------------
+
+## 14. Sorting Lists
+
+``` python
+L = [6, 7, 2, 1, 4]
+L.sort()
+print("Ascending:", L)
+
+L.sort(reverse=True)
+print("Descending:", L)
+```
+
+    Ascending: [1, 2, 4, 6, 7]
+    Descending: [7, 6, 4, 2, 1]
+
+**What it reads in English:**
+
+- `L.sort()` → “Rearrange L from smallest to largest, permanently.”
+- `L.sort(reverse=True)` → “Rearrange L from largest to smallest.”
+
+``` python
+# Sorting strings (alphabetical order)
+SL = ["banana", "apple", "cherry"]
+SL.sort()
+print(SL)
+```
+
+    ['apple', 'banana', 'cherry']
+
+**Memory Trick:** `.sort()` changes the list IN PLACE — the original
+order is gone forever (unless you made a copy first!).
+
+------------------------------------------------------------------------
+
+## 15. Nested Lists (2D Lists) and Nested Loops
+
+``` python
+nested = [[2, 23, 3], [6, 45, 25, 21], [4, 3]]
+print(nested)
+
+for x in nested:        # outer loop: each sub-list
+    for y in x:         # inner loop: each element in sub-list
+        print(y, end=" ")
+    print()             # new line after each sub-list
+```
+
+    [[2, 23, 3], [6, 45, 25, 21], [4, 3]]
+    2 23 3 
+    6 45 25 21 
+    4 3 
+
+**What it reads in English:**
+
+- `for x in nested:` → “For each sub-list inside ‘nested’, call it ‘x’.”
+- `for y in x:` → “For each number inside that sub-list ‘x’, call it
+  ‘y’.”
+- `print(y, end=" ")` → “Print y followed by a space (instead of a new
+  line).”
+- `print()` → “Print an empty line (move to next row).”
+
+**Memory Trick:** Nested loops = “loop inside a loop” — like checking
+every room on every floor of a building.
+
+------------------------------------------------------------------------
+
+## 16. Defining Functions
+
+``` python
+def my_sum(a_list):
+    total = 0
+    for val in a_list:
+        total = total + val
+    return total
+
+L = [6, 7, 2, 1, 4]
+print(my_sum(L))
+```
+
+    20
+
+**What it reads in English:**
+
+- `def my_sum(a_list):` → “Define a reusable action named ‘my_sum’ that
+  expects one input called ‘a_list’.”
+- `return total` → “Send back the value of ‘total’ to whoever called
+  this function.”
+
+**Memory Trick:** Functions are like recipes — define once, use many
+times. `def` = “define this recipe.”
+
+------------------------------------------------------------------------
+
+## 17. Dictionaries — Key-Value Pairs
+
+``` python
+DICT = {"John": 25, "Tom": 30, "Susan": 22, "Helen": 28}
+print(DICT)
+print("Size:", len(DICT))
+```
+
+    {'John': 25, 'Tom': 30, 'Susan': 22, 'Helen': 28}
+    Size: 4
+
+``` python
+# Access keys
+print(DICT.keys())
+
+# Access values through keys
+for k in DICT.keys():
+    print(k, ":", DICT[k])
+
+# Access values directly
+print(DICT.values())
+```
+
+    dict_keys(['John', 'Tom', 'Susan', 'Helen'])
+    John : 25
+    Tom : 30
+    Susan : 22
+    Helen : 28
+    dict_values([25, 30, 22, 28])
+
+**What it reads in English:**
+
+- `DICT = {"John": 25, ...}` → “Create a dictionary where each name
+  (key) maps to a number (value).”
+- `DICT.keys()` → “Give me all the keys (names) in this dictionary.”
+- `DICT[k]` → “Look up the value associated with key ‘k’.”
+
+**Memory Trick:** A dictionary is like a phone book — you look up a
+**name** (key) to find a **number** (value).
+
+------------------------------------------------------------------------
+
+## 18. User Input
+
+``` python
+# In a real interactive session you would run:
+# option = input("What's your choice (1, 2, or 3)? ")
+# print(option)
+
+# For this non-interactive demo:
+option = "3"
+print("User chose:", option)
+```
+
+    User chose: 3
+
+**What it reads in English:**
+
+- `input("prompt")` → “Show the prompt text, then wait for the user to
+  type something and press Enter.”
+
+**Memory Trick:** `input()` = “pause and listen to the user.”
+
+------------------------------------------------------------------------
+
+## 19. Reading from a Text File
+
+``` python
+# Create a sample file for demonstration
+with open("sample_input.txt", "w") as f:
+    f.write("30 10 40 25 33\n")
+    f.write("5 15 20\n")
+    f.write("8 12 6\n")
+```
+
+``` python
+f = open("sample_input.txt", "r")
+data_raw = f.readlines()
+f.close()
+
+print("Raw data (with newline characters):")
+print(data_raw)
+```
+
+    Raw data (with newline characters):
+    ['30 10 40 25 33\n', '5 15 20\n', '8 12 6\n']
+
+``` python
+# Strip whitespace/newlines
+data_clean = []
+for line in data_raw:
+    data_clean.append(line.strip())
+
+print("Clean data:")
+print(data_clean)
+```
+
+    Clean data:
+    ['30 10 40 25 33', '5 15 20', '8 12 6']
+
+**What it reads in English:**
+
+- `open("sample_input.txt", "r")` → “Open the file named
+  ‘sample_input.txt’ in read-only mode.”
+- `f.readlines()` → “Read all lines from the file and return them as a
+  list of strings.”
+- `f.close()` → “Close the file (free up system resources).”
+- `line.strip()` → “Remove leading/trailing whitespace and newline
+  characters from this string.”
+
+**Memory Trick:** - `"r"` = read, `"w"` = write - Always close what you
+open! (Or use `with` to auto-close) - `.strip()` = “peel off the
+invisible junk at the edges”
+
+------------------------------------------------------------------------
+
+## 20. Type Casting (String to Integer)
+
+``` python
+data_clean = ["30 10 40 25 33", "5 15 20", "8 12 6"]
+
+# Convert string numbers to actual integers
+for line in data_clean:
+    numbers = line.split()          # split string by spaces
+    int_numbers = []
+    for num in numbers:
+        int_numbers.append(int(num))  # convert each to integer
+    print(int_numbers)
+```
+
+    [30, 10, 40, 25, 33]
+    [5, 15, 20]
+    [8, 12, 6]
+
+**What it reads in English:**
+
+- `line.split()` → “Break this string into a list of pieces wherever
+  there’s a space.”
+- `int(num)` → “Convert the string ‘num’ into an actual integer number.”
+
+**Memory Trick:** `split()` = “chop the string into pieces” \| `int()` =
+“turn text-number into real-number”
+
+------------------------------------------------------------------------
+
+## 21. Writing to a Text File
+
+``` python
+numbers = [10, 20, 30, 40, 50]
+
+f_out = open("sample_output.txt", "w")
+for num in numbers:
+    f_out.write(str(num) + "\n")
+f_out.close()
+
+# Verify by reading it back
+with open("sample_output.txt", "r") as f:
+    print(f.read())
+```
+
+    10
+    20
+    30
+    40
+    50
+
+**What it reads in English:**
+
+- `open("sample_output.txt", "w")` → “Open (or create) this file in
+  write mode. WARNING: this erases existing content!”
+- `f_out.write(str(num) + "\n")` → “Convert the number to text, add a
+  newline, and write it to the file.”
+- `str(num)` → “Convert integer ‘num’ to a string (because files only
+  store text).”
+
+**Memory Trick:** Writing to a file with `"w"` is like erasing a
+whiteboard and writing fresh. Use `"a"` (append) to add without erasing.
+
+------------------------------------------------------------------------
+
+## 22. Deep Copy vs Shallow Copy
+
+When you do `M = L`, both names point to the SAME data. Changing one
+changes the other!
+
+``` python
+L = [6, 2, 11, 5]
+M = L              # M is just another name for the SAME list
+
+L.sort()
+print("L after sort:", L)
+print("M (also changed!):", M)
+```
+
+    L after sort: [2, 5, 6, 11]
+    M (also changed!): [2, 5, 6, 11]
+
+**Fix: Use `copy.deepcopy()` to create a truly separate copy.**
+
+``` python
+import copy
+
+L = [6, 2, 11, 5]
+M = copy.deepcopy(L)   # M is now a completely independent copy
+
+L.sort()
+print("L after sort:", L)
+print("M (unchanged!):", M)
+```
+
+    L after sort: [2, 5, 6, 11]
+    M (unchanged!): [6, 2, 11, 5]
+
+**What it reads in English:**
+
+- `import copy` → “Load the ‘copy’ toolbox so we can use its functions.”
+- `copy.deepcopy(L)` → “Create a brand new, completely independent
+  duplicate of L.”
+- `M = L` → “Make M point to the exact same data as L (NOT a copy!).”
+
+**Memory Trick:** - `M = L` is like two people sharing ONE notebook — if
+one writes, both see it - `deepcopy` is like photocopying the notebook —
+each person has their own
+
+------------------------------------------------------------------------
+
+## Quick Reference Table
+
+| Concept     | Syntax               | Remember              |
+|-------------|----------------------|-----------------------|
+| Comment     | `# text`             | Mute button           |
+| Print       | `print(x)`           | “Say this out loud”   |
+| Type check  | `type(x)`            | “What are you?”       |
+| Length      | `len(x)`             | Measuring tape        |
+| List access | `L[0]`               | Lockers start at 0    |
+| For loop    | `for x in L:`        | “For each thing…”     |
+| Range loop  | `for i in range(n):` | “Count from 0 to n-1” |
+| Sort        | `L.sort()`           | Permanent rearrange   |
+| Function    | `def name(params):`  | Recipe definition     |
+| Dictionary  | `{key: value}`       | Phone book            |
+| Read file   | `open(f, "r")`       | Open book to read     |
+| Write file  | `open(f, "w")`       | Fresh whiteboard      |
+| Deep copy   | `copy.deepcopy(L)`   | Photocopy             |
+| Strip       | `s.strip()`          | Peel edges            |
+| Split       | `s.split()`          | Chop into pieces      |
+| Cast to int | `int("5")`           | Text → Number         |
