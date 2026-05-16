@@ -1,0 +1,163 @@
+---
+title: "Quiz Practice - Python List Operations"
+format: gfm
+jupyter: python3
+---
+
+## 1. Count Values in a List — `len()`
+
+**Goal:** Find how many items are in a list.
+
+```{python}
+data_i = [70, 51, 37, 94, 58, 9, 95, 95, 99, 38, 45, 63, 51, 22, 19, 50, 3, 68, 55, 84, 36, 25, 65, 17, 14, 44, 62, 76, 51, 59, 93, 39, 71, 36, 84, 24, 88, 88, 94, 88, 60, 14, 83, 74, 2, 53, 86, 69, 15, 87, 33, 49, 17, 81, 34, 33, 28, 35, 38, 51, 97, 47, 14, 62, 1, 4, 23, 71, 62, 40, 20, 36, 76, 84, 90, 96, 62, 36, 69, 34, 43, 53, 44, 47, 51, 13, 57, 21, 54, 92, 8, 45, 50, 1, 44, 9, 57, 36, 77, 38]
+
+print("Number of values in the list:", len(data_i))
+```
+
+**What it reads in English:**
+
+- `data_i = [70, 51, ...]` → "Create a list named 'data_i' containing these integer values."
+- `len(data_i)` → "Count how many items are stored in the list 'data_i'."
+
+**Memory Trick:** `len()` = "how long is this?" — works on lists, strings, dictionaries, sets, etc.
+
+---
+
+## 2. Difference Between Largest and Smallest — `max()` and `min()`
+
+**Goal:** Find the range (max - min) of a list.
+
+```{python}
+largest = max(data_i)
+smallest = min(data_i)
+difference = largest - smallest
+
+print("Largest:", largest)
+print("Smallest:", smallest)
+print("Difference:", difference)
+```
+
+**What it reads in English:**
+
+- `max(data_i)` → "Scan through all values in 'data_i' and return the biggest one."
+- `min(data_i)` → "Scan through all values in 'data_i' and return the smallest one."
+- `difference = largest - smallest` → "Subtract the smallest from the largest and store the result."
+
+**Memory Trick:** `max()` = "the champion" | `min()` = "the underdog" | difference = the gap between them.
+
+---
+
+## 3. 2nd Largest Unique Value — `set()` + `sorted()`
+
+**Goal:** Remove duplicates, sort descending, pick the second item.
+
+```{python}
+unique_values = sorted(set(data_i), reverse=True)
+print("Top 5 unique values:", unique_values[:5])
+print("2nd largest unique value:", unique_values[1])
+```
+
+**What it reads in English:**
+
+- `set(data_i)` → "Remove all duplicate values from 'data_i' — keep only unique ones."
+- `sorted(..., reverse=True)` → "Sort these unique values from largest to smallest."
+- `unique_values[1]` → "Give me the item at index 1 (the second item, since index starts at 0)."
+
+**Memory Trick:** 
+- `set()` = "remove copies" (like a bouncer: no duplicates allowed)
+- `sorted(reverse=True)` = "line up from tallest to shortest"
+- `[1]` = second in line (because `[0]` is first)
+
+---
+
+## 4. Count Values in a String List — `len()`
+
+**Goal:** Same as before, but with a list of strings.
+
+```{python}
+data_s = ['Mango', 'Kiwi', 'Mango', 'Apple', 'Kiwi', 'Apple', 'Banana', 'Pineapple', 'Mango', 'Apple', 'Pineapple', 'Kiwi', 'Banana', 'Pineapple', 'Apple', 'Banana', 'Kiwi', 'Kiwi', 'Apple', 'Mango', 'Pineapple', 'Banana', 'Pineapple', 'Apple', 'Apple', 'Apple', 'Mango', 'Pineapple', 'Kiwi', 'Kiwi', 'Pineapple', 'Pineapple', 'Banana', 'Apple', 'Pineapple', 'Kiwi', 'Kiwi', 'Mango', 'Banana', 'Kiwi', 'Pineapple', 'Apple', 'Pineapple', 'Kiwi', 'Apple', 'Apple', 'Banana', 'Pineapple', 'Kiwi', 'Apple', 'Banana', 'Pineapple', 'Kiwi', 'Banana', 'Apple', 'Mango', 'Kiwi', 'Banana', 'Mango', 'Banana', 'Apple', 'Banana', 'Kiwi', 'Banana', 'Banana', 'Mango', 'Apple', 'Apple', 'Mango', 'Apple', 'Pineapple', 'Kiwi', 'Kiwi', 'Banana', 'Banana', 'Apple', 'Pineapple', 'Pineapple', 'Apple', 'Kiwi', 'Mango', 'Kiwi', 'Kiwi', 'Apple', 'Kiwi', 'Pineapple', 'Kiwi', 'Pineapple', 'Banana', 'Kiwi', 'Kiwi', 'Kiwi', 'Apple', 'Apple', 'Pineapple', 'Pineapple', 'Banana', 'Banana', 'Apple', 'Pineapple']
+
+print("Number of values in data_s:", len(data_s))
+```
+
+**What it reads in English:**
+
+- `data_s = ['Mango', 'Kiwi', ...]` → "Create a list of fruit name strings."
+- `len(data_s)` → "Count how many items (strings) are in this list."
+
+**Memory Trick:** `len()` doesn't care about data type — it counts items whether they're numbers or strings.
+
+---
+
+## 5. Distinct (Unique) Values — `set()`
+
+**Goal:** Find how many different fruit names exist (ignoring repeats).
+
+```{python}
+distinct = set(data_s)
+print("Distinct fruit names:", distinct)
+print("Number of distinct fruits:", len(distinct))
+```
+
+**What it reads in English:**
+
+- `set(data_s)` → "Take the list 'data_s' and remove all duplicates — keep one of each."
+- `len(distinct)` → "Count how many unique items remain."
+
+**Memory Trick:** `set()` = "unique filter" — like removing duplicate cards from a deck. Each value appears only once.
+
+---
+
+## 6. Most Frequent Value — `max()` with `key` + `.count()`
+
+**Goal:** Find which fruit appears the most times.
+
+```{python}
+# Count each fruit
+for fruit in sorted(set(data_s)):
+    print(f"{fruit}: {data_s.count(fruit)}")
+
+# Most frequent
+most = max(set(data_s), key=data_s.count)
+print(f"\nMost frequent: {most} ({data_s.count(most)} times)")
+```
+
+**What it reads in English:**
+
+- `for fruit in sorted(set(data_s)):` → "For each unique fruit name (in alphabetical order), do the following."
+- `data_s.count(fruit)` → "Count how many times 'fruit' appears in the list 'data_s'."
+- `f"{fruit}: {data_s.count(fruit)}"` → "Format a string showing the fruit name and its count."
+- `max(set(data_s), key=data_s.count)` → "Among all unique fruits, find the one whose count is the highest."
+
+**Memory Trick:**
+- `.count(x)` = "how many times does x show up?"
+- `max(..., key=...)` = "find the winner, but judge them by THIS criteria"
+- `key=data_s.count` tells `max()`: "don't compare the names alphabetically — compare by how OFTEN they appear"
+
+---
+
+## Summary of Key Functions Used
+
+| Function | What It Does | Example |
+|----------|-------------|---------|
+| `len(L)` | Count items in a list | `len([1,2,3])` → 3 |
+| `max(L)` | Find largest value | `max([5,2,8])` → 8 |
+| `min(L)` | Find smallest value | `min([5,2,8])` → 2 |
+| `set(L)` | Remove duplicates | `set([1,1,2])` → {1, 2} |
+| `sorted(L)` | Sort (returns new list) | `sorted([3,1,2])` → [1,2,3] |
+| `sorted(L, reverse=True)` | Sort descending | `sorted([3,1,2], reverse=True)` → [3,2,1] |
+| `L.count(x)` | Count occurrences of x | `[1,1,2].count(1)` → 2 |
+| `max(S, key=func)` | Find item with highest func value | Most frequent item |
+
+---
+
+## Pattern to Remember
+
+```
+len()       → "How many?"
+max() / min() → "Biggest / Smallest?"
+set()       → "Remove copies"
+sorted()    → "Put in order"
+.count()    → "How many times does THIS appear?"
+max(set, key=list.count) → "Which unique item appears most?"
+```
